@@ -29,22 +29,25 @@ class ViewModel: ObservableObject {
                 .sink(receiveCompletion: { _ in }, receiveValue: { response in
                     switch symbol {
                     case "USD":
-                        self.buyPriceUSD = "\(response.rates["KZT"] ?? 0.0)"
+                        let kztValue = response.rates["KZT"] ?? 0.0
+                        let usdValue = response.rates["USD"] ?? 0.0
+                        let result = kztValue / usdValue
+                        self.buyPriceUSD = String(format: "%.4f", result)
                     case "EUR":
                         let kztValue = response.rates["KZT"] ?? 0.0
                         let eurValue = response.rates["EUR"] ?? 0.0
                         let result = kztValue / eurValue
-                        self.buyPriceEUR = String(result)
+                        self.buyPriceEUR = String(format: "%.4f", result)
                     case "RUB":
                         let kztValue = response.rates["KZT"] ?? 0.0
                         let rubValue = response.rates["RUB"] ?? 0.0
                         let result = kztValue / rubValue
-                        self.buyPriceRUB = String(result)
+                        self.buyPriceRUB = String(format: "%.4f", result)
                     case "KRW":
                         let kztValue = response.rates["KZT"] ?? 0.0
                         let krwValue = response.rates["KRW"] ?? 0.0
                         let result = kztValue / krwValue
-                        self.buyPriceKRW = String(result)
+                        self.buyPriceKRW = String(format: "%.4f", result)
                     default:
                         return
                     }
