@@ -26,7 +26,7 @@ class ViewModel: ObservableObject {
             }
             URLSession.shared.dataTaskPublisher(for: url)
                 .map(\.data)
-                .decode(type: RateResponse.self, decoder: JSONDecoder())
+                .decode(type: ResponseData.self, decoder: JSONDecoder())
                 .receive(on: DispatchQueue.main)
                 .sink(receiveCompletion: { _ in }, receiveValue: { response in
                     switch symbol {
@@ -67,7 +67,7 @@ class ViewModel: ObservableObject {
                 do {
                     let decoder = JSONDecoder()
                     decoder.keyDecodingStrategy = .convertFromSnakeCase
-                    let exchangeRateData = try decoder.decode(ExchangeRateData.self, from: data)
+                    let exchangeRateData = try decoder.decode(ResponseData.self, from: data)
                     self.formattedString(for: exchangeRateData.timestamp)
                 } catch {
                     print("Error decoding JSON: \(error)")
@@ -84,10 +84,7 @@ class ViewModel: ObservableObject {
     
 }
 
-struct RateResponse: Decodable {
+struct ResponseData: Decodable {
     let rates: [String: Double]
-}
-
-struct ExchangeRateData: Codable {
     let timestamp: Double
 }
