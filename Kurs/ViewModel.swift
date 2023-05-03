@@ -13,6 +13,8 @@ class ViewModel: ObservableObject {
     @Published var buyPriceRUB: String = ""
     @Published var buyPriceEUR: String = ""
     @Published var buyPriceKRW: String = ""
+    @Published var time: String = ""
+    
     
     private var cancellables = Set<AnyCancellable>()
     
@@ -54,9 +56,38 @@ class ViewModel: ObservableObject {
                 })
                 .store(in: &cancellables)
         }
+        fetchExchangeRate()
     }
+    
+    
+    func fetchExchangeRate() {
+        guard let url = URL(string: "https://openexchangerates.org/api/latest.json?app_id=11aaedca74904e10abdb9cfa224a7421") else { return }
+        URLSession.shared.dataTask(with: url) { data, response, error in
+            if let data = data {
+                do {
+                    let decoder = JSONDecoder()
+                    decoder.keyDecodingStrategy = .convertFromSnakeCase
+                    let exchangeRateData = try decoder.decode(ExchangeRateData.self, from: data)
+                    self.formattedString(for: exchangeRateData.timestamp)
+                } catch {
+                    print("Error decoding JSON: \(error)")
+                }
+            }
+        }.resume()
+    }
+    
+    func formattedString(for timestamp: Double) {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        self.time = dateFormatter.string(from: Date(timeIntervalSince1970: timestamp))
+    }
+    
 }
 
 struct RateResponse: Decodable {
     let rates: [String: Double]
+}
+
+struct ExchangeRateData: Codable {
+    let timestamp: Double
 }

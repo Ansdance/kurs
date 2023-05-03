@@ -19,6 +19,10 @@ struct ContentView: View {
             
             CurrencyListView(viewModel: viewModel)
             
+            Text("\(viewModel.time)")
+                .padding()
+            Spacer()
+            
             Button("Обновить") {
                 viewModel.start()
             }
@@ -29,6 +33,7 @@ struct ContentView: View {
         .onAppear {
             viewModel.start()
         }
+        
     }
 }
 
