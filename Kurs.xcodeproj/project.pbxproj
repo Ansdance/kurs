@@ -11,6 +11,8 @@
 		80C461972A025C7E00E44047 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C461962A025C7E00E44047 /* ContentView.swift */; };
 		80C461992A025C7F00E44047 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 80C461982A025C7F00E44047 /* Assets.xcassets */; };
 		80C4619C2A025C7F00E44047 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 80C4619B2A025C7F00E44047 /* Preview Assets.xcassets */; };
+		80C461A32A026F8000E44047 /* CurrencyListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C461A22A026F8000E44047 /* CurrencyListView.swift */; };
+		80C461A52A026F9400E44047 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C461A42A026F9400E44047 /* ViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +21,8 @@
 		80C461962A025C7E00E44047 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		80C461982A025C7F00E44047 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		80C4619B2A025C7F00E44047 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		80C461A22A026F8000E44047 /* CurrencyListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyListView.swift; sourceTree = "<group>"; };
+		80C461A42A026F9400E44047 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +57,8 @@
 			children = (
 				80C461942A025C7E00E44047 /* KursApp.swift */,
 				80C461962A025C7E00E44047 /* ContentView.swift */,
+				80C461A22A026F8000E44047 /* CurrencyListView.swift */,
+				80C461A42A026F9400E44047 /* ViewModel.swift */,
 				80C461982A025C7F00E44047 /* Assets.xcassets */,
 				80C4619A2A025C7F00E44047 /* Preview Content */,
 			);
@@ -138,6 +144,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				80C461972A025C7E00E44047 /* ContentView.swift in Sources */,
+				80C461A32A026F8000E44047 /* CurrencyListView.swift in Sources */,
+				80C461A52A026F9400E44047 /* ViewModel.swift in Sources */,
 				80C461952A025C7E00E44047 /* KursApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
