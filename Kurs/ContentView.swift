@@ -16,10 +16,12 @@ struct ContentView: View {
             Text("Курсы валют")
                 .font(.title)
                 .padding()
+                .foregroundColor(Color(#colorLiteral(red: 0, green: 0.6823529412, blue: 0.7098039216, alpha: 1)))
             
             CurrencyListView(viewModel: viewModel)
             
             Text("\(viewModel.time)")
+                .foregroundColor(Color(#colorLiteral(red: 0, green: 0.6823529412, blue: 0.7098039216, alpha: 1)))
                 .padding()
             Spacer()
             
@@ -29,12 +31,14 @@ struct ContentView: View {
             .padding()
             .buttonStyle(RoundedButtonStyle())
         }
-        .background(Color.white)
+        .background(Color(#colorLiteral(red: 0.1333333333, green: 0.168627451, blue: 0.1921568627, alpha: 1))) // 222831
+                
         .onAppear {
             viewModel.start()
         }
         
     }
+        
 }
 
 struct ContentView_Previews: PreviewProvider {
@@ -47,8 +51,8 @@ struct RoundedButtonStyle: ButtonStyle {
     func makeBody(configuration: Self.Configuration) -> some View {
         configuration.label
             .padding()
-            .foregroundColor(.white)
-            .background(configuration.isPressed ? Color.gray : Color.blue)
-            .cornerRadius(10)
+            .foregroundColor(Color(red: 0.933, green: 0.933, blue: 0.933))
+            .background(Color(#colorLiteral(red: 0, green: 0.6823529412, blue: 0.7098039216, alpha: 1)))
+            .cornerRadius(20)
     }
 }
