@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "4DA449FC-1382-4621-988A-22ADF125925B"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "6B279056-2AD9-43EB-93E9-06D385F153F9"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Kurs/ContentView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "90"
+            endingLineNumber = "90"
+            landmarkName = "start()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "6B279056-2AD9-43EB-93E9-06D385F153F9 - 2925dc217fcdefe8"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Kurs.ViewModel.start() -&gt; ()"
+                  moduleName = "Kurs"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ansardauletbayev/Documents/Projects/kurs/Kurs/Kurs/ContentView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "90"
+                  endingLineNumber = "90"
+                  offsetFromSymbolStart = "1120">
+               </Location>
+               <Location
+                  uuid = "6B279056-2AD9-43EB-93E9-06D385F153F9 - 2925dc217fcdefe8"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Kurs.ViewModel.start() -&gt; ()"
+                  moduleName = "Kurs"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ansardauletbayev/Documents/Projects/kurs/Kurs/Kurs/ContentView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "90"
+                  endingLineNumber = "90"
+                  offsetFromSymbolStart = "4992">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
