@@ -20,6 +20,7 @@ struct ContentView: View {
             
             CurrencyListView(viewModel: viewModel)
             
+            
             Text("\(viewModel.time)")
                 .foregroundColor(Color(#colorLiteral(red: 0, green: 0.6823529412, blue: 0.7098039216, alpha: 1)))
                 .padding()

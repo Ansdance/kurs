@@ -7,6 +7,7 @@
 
 import Combine
 import SwiftUI
+import Alamofire
 
 class ViewModel: ObservableObject {
     @Published var buyPriceUSD: String = ""
@@ -61,19 +62,16 @@ class ViewModel: ObservableObject {
     
     
     func fetchExchangeRate() {
-        guard let url = URL(string: "https://openexchangerates.org/api/latest.json?app_id=11aaedca74904e10abdb9cfa224a7421") else { return }
-        URLSession.shared.dataTask(with: url) { data, response, error in
-            if let data = data {
-                do {
-                    let decoder = JSONDecoder()
-                    decoder.keyDecodingStrategy = .convertFromSnakeCase
-                    let exchangeRateData = try decoder.decode(ResponseData.self, from: data)
-                    self.formattedString(for: exchangeRateData.timestamp)
-                } catch {
-                    print("Error decoding JSON: \(error)")
-                }
+        let url = "https://openexchangerates.org/api/latest.json?app_id=11aaedca74904e10abdb9cfa224a7421"
+        AF.request(url).validate().responseJSON { response in
+            switch response.result {
+            case .success(let value):
+                guard let json = value as? [String: Any], let timestamp = json["timestamp"] as? Double else { return }
+                self.formattedString(for: timestamp)
+            case .failure(let error):
+                print(error)
             }
-        }.resume()
+        }
     }
     
     func formattedString(for timestamp: Double) {
@@ -82,6 +80,21 @@ class ViewModel: ObservableObject {
         self.time = dateFormatter.string(from: Date(timeIntervalSince1970: timestamp))
     }
     
+    //    func fetchExchangeRate() {
+    //        guard let url = URL(string: "https://openexchangerates.org/api/latest.json?app_id=11aaedca74904e10abdb9cfa224a7421") else { return }
+    //        URLSession.shared.dataTask(with: url) { data, response, error in
+    //            if let data = data {
+    //                do {
+    //                    let decoder = JSONDecoder()
+    //                    decoder.keyDecodingStrategy = .convertFromSnakeCase
+    //                    let exchangeRateData = try decoder.decode(ResponseData.self, from: data)
+    //                    self.formattedString(for: exchangeRateData.timestamp)
+    //                } catch {
+    //                    print("Error decoding JSON: \(error)")
+    //                }
+    //            }
+    //        }.resume()
+    //    }
 }
 
 struct ResponseData: Decodable {
